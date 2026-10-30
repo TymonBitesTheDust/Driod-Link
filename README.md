@@ -61,8 +61,6 @@ Open the folder in Android Studio and press Run, or from a terminal with the And
 ./gradlew assembleRelease
 ```
 
-The APK lands in `app/build/outputs/apk/release/app-release.apk`.
-
 Push this folder to a GitHub repository and the included workflow (`.github/workflows/build.yml`) builds the APK for you on every push and attaches it to a release you can download on your phone.
 
 The project is signed with a key in `app/droidlink.keystore` (password `droidlink`) so every build installs over the previous one. That is fine for personal use; make your own private key before publishing it anywhere.
