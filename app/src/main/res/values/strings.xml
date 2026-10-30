@@ -20,8 +20,14 @@
     <string name="host_control_title">Remote control</string>
     <string name="host_control_body">Lets the other phone tap, swipe and type here. Without it, the other phone can only watch.</string>
     <string name="host_control_button">Turn on remote control</string>
-    <string name="host_control_hint">In the list, open DroidLink remote control and switch it on. If Android says it\'s a restricted setting, open App info, tap ⋮ in the top corner, choose Allow restricted settings, then try again.</string>
+    <string name="host_control_hint">In the list, open <b>DroidLink remote control</b> and switch it on.</string>
     <string name="open_app_info">Open App info</string>
+    <string name="restricted_title">Android says “Restricted setting”?</string>
+    <string name="restricted_body">That is normal for apps installed from an APK file. Unlock it once on this phone:</string>
+    <string name="restricted_step_1">Tap <b>Turn on remote control</b>, open <b>DroidLink remote control</b> and try to switch it on. When the message appears, tap <b>OK</b>.</string>
+    <string name="restricted_step_2">Open App info, tap <b>⋮</b> in the top-right corner, then <b>Allow restricted settings</b>. Confirm with your PIN or fingerprint.</string>
+    <string name="restricted_step_3">Tap <b>Turn on remote control</b> again and switch it on.</string>
+    <string name="restricted_missing">No <b>⋮</b> in App info, or no <b>Allow restricted settings</b>? They only appear after Android has shown the message. Swipe Settings away in Recent apps, do step 1 again, then open App info fresh. Still missing? Restart the phone and try once more.</string>
     <string name="host_share_title">Screen sharing</string>
     <string name="host_share_body">When you start, Android asks for permission to record your screen. On the other phone, open DroidLink, tap Control another phone and enter:</string>
     <string name="host_share_body_idle">When you start, Android asks for permission to record your screen. Choose Entire screen if it asks.</string>

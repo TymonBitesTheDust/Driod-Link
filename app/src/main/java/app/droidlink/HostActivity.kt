@@ -27,6 +27,7 @@ class HostActivity : Activity() {
     private lateinit var controlChip: TextView
     private lateinit var enableControlButton: Button
     private lateinit var restrictedHelp: View
+    private lateinit var simpleHint: View
     private lateinit var shareChip: TextView
     private lateinit var shareBody: TextView
     private lateinit var connectInfo: View
@@ -47,6 +48,7 @@ class HostActivity : Activity() {
         controlChip = findViewById(R.id.control_chip)
         enableControlButton = findViewById(R.id.btn_enable_control)
         restrictedHelp = findViewById(R.id.restricted_help)
+        simpleHint = findViewById(R.id.control_hint_simple)
         shareChip = findViewById(R.id.share_chip)
         shareBody = findViewById(R.id.share_body)
         connectInfo = findViewById(R.id.connect_info)
@@ -134,7 +136,11 @@ class HostActivity : Activity() {
         val controlOn = RemoteControlService.isEnabled(this)
         setChip(controlChip, controlOn, R.string.chip_on)
         enableControlButton.visibility = if (controlOn) View.GONE else View.VISIBLE
-        restrictedHelp.visibility = if (controlOn) View.GONE else View.VISIBLE
+        // Android 13+ blocks accessibility services of apps installed from an APK until the
+        // user allows restricted settings in App info, so show the step-by-step guide there.
+        val hasRestrictedSettings = Build.VERSION.SDK_INT >= 33
+        restrictedHelp.visibility = if (!controlOn && hasRestrictedSettings) View.VISIBLE else View.GONE
+        simpleHint.visibility = if (!controlOn && !hasRestrictedSettings) View.VISIBLE else View.GONE
 
         val sharing = ShareState.isSharing
         setChip(shareChip, sharing, R.string.chip_live)
