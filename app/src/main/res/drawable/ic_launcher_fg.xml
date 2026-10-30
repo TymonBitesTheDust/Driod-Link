@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- link arc between the phones -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M40,27Q54,17 68,27"
+        android:strokeWidth="3.5"
+        android:strokeColor="#FFFFFFFF"
+        android:strokeLineCap="round" />
+    <!-- left phone -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M31,32h14a5,5 0,0 1,5 5v37a5,5 0,0 1,-5 5h-14a5,5 0,0 1,-5 -5v-37a5,5 0,0 1,5 -5z" />
+    <path
+        android:fillColor="#FF2F6BFF"
+        android:pathData="M29.5,38h19v31h-19z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M34.5,53.5a4.5,4.5 0,1 0,9 0a4.5,4.5 0,1 0,-9 0z" />
+    <!-- right phone -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M63,32h14a5,5 0,0 1,5 5v37a5,5 0,0 1,-5 5h-14a5,5 0,0 1,-5 -5v-37a5,5 0,0 1,5 -5z" />
+    <path
+        android:fillColor="#FF2F6BFF"
+        android:pathData="M61.5,38h19v31h-19z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M66.5,53.5a4.5,4.5 0,1 0,9 0a4.5,4.5 0,1 0,-9 0z" />
+</vector>

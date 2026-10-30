@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DroidLink</string>
+
+    <!-- Home -->
+    <string name="home_title">Connect two Android phones</string>
+    <string name="home_subtitle">One phone shares its screen. The other sees it live and can tap, swipe and type on it.</string>
+    <string name="share_title">Share this phone</string>
+    <string name="share_desc">Let another phone see and control this screen.</string>
+    <string name="control_title">Control another phone</string>
+    <string name="control_desc">View a phone that\'s sharing and use it from here.</string>
+    <string name="sharing_badge">Sharing now</string>
+    <string name="how_title">How it works</string>
+    <string name="how_1">On the phone you want to control, open DroidLink and tap Share this phone.</string>
+    <string name="how_2">On the other phone, tap Control another phone and pick it from the list, or type its address.</string>
+    <string name="how_3">Enter the 6-digit PIN shown on the sharing phone.</string>
+    <string name="how_note">Both phones need to be on the same Wi-Fi. No Wi-Fi? Turn on one phone\'s hotspot and join it with the other.</string>
+
+    <!-- Host -->
+    <string name="host_control_title">Remote control</string>
+    <string name="host_control_body">Lets the other phone tap, swipe and type here. Without it, the other phone can only watch.</string>
+    <string name="host_control_button">Turn on remote control</string>
+    <string name="host_control_hint">In the list, open DroidLink remote control and switch it on. If Android says it\'s a restricted setting, open App info, tap ⋮ in the top corner, choose Allow restricted settings, then try again.</string>
+    <string name="open_app_info">Open App info</string>
+    <string name="host_share_title">Screen sharing</string>
+    <string name="host_share_body">When you start, Android asks for permission to record your screen. On the other phone, open DroidLink, tap Control another phone and enter:</string>
+    <string name="host_share_body_idle">When you start, Android asks for permission to record your screen. Choose Entire screen if it asks.</string>
+    <string name="label_address">Address</string>
+    <string name="label_pin">PIN</string>
+    <string name="host_waiting">Waiting for the other phone to connect…</string>
+    <string name="host_connected">Connected to %1$s</string>
+    <string name="no_network">No Wi-Fi found. Connect both phones to the same Wi-Fi, or turn on this phone\'s hotspot.</string>
+    <string name="start_sharing">Start sharing</string>
+    <string name="stop_sharing">Stop sharing</string>
+    <string name="host_footnote">Only share with people you trust. While connected, the other phone can see everything on your screen.</string>
+    <string name="share_cancelled">Screen sharing was cancelled.</string>
+    <string name="chip_on">On</string>
+    <string name="chip_off">Off</string>
+    <string name="chip_live">Live</string>
+
+    <!-- Notification -->
+    <string name="channel_name">Screen sharing</string>
+    <string name="channel_description">Shown while this phone is shared with another phone.</string>
+    <string name="notif_title">Your screen is being shared</string>
+    <string name="notif_waiting">Waiting to connect · PIN %1$s</string>
+    <string name="notif_connected">Connected to %1$s</string>
+
+    <!-- Accessibility service -->
+    <string name="accessibility_label">DroidLink remote control</string>
+    <string name="accessibility_description">Lets a phone you connect with DroidLink tap, swipe and type on this phone while you are sharing your screen. DroidLink only acts on instructions from a phone that entered your PIN, and only while sharing is on.</string>
+
+    <!-- Connect -->
+    <string name="connect_nearby">Phones nearby</string>
+    <string name="connect_searching">Looking for phones sharing on this Wi-Fi…</string>
+    <string name="connect_manual">Or enter the details</string>
+    <string name="address_hint">e.g. 192.168.1.23:47800</string>
+    <string name="pin_hint">6-digit PIN</string>
+    <string name="connect">Connect</string>
+    <string name="connect_footnote">The address and PIN appear on the other phone after it taps Start sharing.</string>
+    <string name="error_address">Enter the address shown on the other phone</string>
+    <string name="error_pin">Enter the 6-digit PIN</string>
+
+    <!-- Control -->
+    <string name="connecting_to">Connecting to %1$s…</string>
+    <string name="retry">Try again</string>
+    <string name="view_only">View only · remote control is off on the other phone</string>
+    <string name="view_only_toast">Turn on Remote control on the other phone to tap and swipe.</string>
+    <string name="type_hint">Type here, then send</string>
+    <string name="disconnect_title">Disconnect?</string>
+    <string name="disconnect_message">You\'ll stop seeing and controlling the other phone.</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="stay">Stay</string>
+
+    <string name="err_wrong_pin">Wrong PIN. Check the PIN on the other phone and try again.</string>
+    <string name="err_busy">That phone is already connected to another phone.</string>
+    <string name="err_version">The other phone has a different version of DroidLink. Install the same version on both.</string>
+    <string name="err_unreachable">Couldn\'t reach %1$s. Check that both phones are on the same Wi-Fi and that sharing is on.</string>
+    <string name="err_timeout">The other phone stopped responding.</string>
+    <string name="err_ended">The other phone stopped sharing.</string>
+    <string name="err_generic">Connection lost.</string>
+
+    <!-- Content descriptions -->
+    <string name="cd_navigate_up">Go back</string>
+    <string name="cd_back">Back on the other phone</string>
+    <string name="cd_home">Home on the other phone. Long-press for notifications</string>
+    <string name="cd_recents">Recent apps on the other phone</string>
+    <string name="cd_keyboard">Type text</string>
+    <string name="cd_disconnect">Disconnect</string>
+    <string name="cd_send">Send text</string>
+    <string name="cd_backspace">Delete one character</string>
+    <string name="cd_enter">Press Enter</string>
+</resources>

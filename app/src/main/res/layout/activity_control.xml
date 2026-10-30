@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/control_bg"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <app.droidlink.RemoteScreenView
+            android:id="@+id/screen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/view_only_banner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/bg_pill_dark"
+            android:paddingStart="14dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="14dp"
+            android:paddingBottom="8dp"
+            android:text="@string/view_only"
+            android:textColor="@color/control_icon"
+            android:textSize="13sp"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/status_overlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/control_overlay"
+            android:clickable="true"
+            android:focusable="false"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="32dp">
+
+            <ProgressBar
+                android:id="@+id/status_progress"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:indeterminate="true" />
+
+            <TextView
+                android:id="@+id/status_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:lineSpacingExtra="3sp"
+                android:textColor="@color/control_icon"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/btn_retry"
+                style="@style/Button.Primary"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="20dp"
+                android:minWidth="160dp"
+                android:text="@string/retry"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btn_leave"
+                style="@style/Button.Link"
+                android:layout_marginTop="8dp"
+                android:text="@string/disconnect"
+                android:textColor="@color/control_hint"
+                android:visibility="gone" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/type_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/control_panel"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="10dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="8dp"
+        android:visibility="gone">
+
+        <EditText
+            android:id="@+id/type_input"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:autofillHints=""
+            android:background="@drawable/bg_input_dark"
+            android:hint="@string/type_hint"
+            android:imeOptions="actionSend"
+            android:inputType="text"
+            android:maxLength="1000"
+            android:minHeight="46dp"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:textColor="@color/control_icon"
+            android:textColorHint="@color/control_hint"
+            android:textSize="16sp" />
+
+        <ImageButton
+            android:id="@+id/btn_backspace"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="4dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cd_backspace"
+            android:src="@drawable/ic_backspace" />
+
+        <ImageButton
+            android:id="@+id/btn_enter"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cd_enter"
+            android:src="@drawable/ic_enter" />
+
+        <ImageButton
+            android:id="@+id/btn_send"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="4dp"
+            android:background="@drawable/bg_send"
+            android:contentDescription="@string/cd_send"
+            android:src="@drawable/ic_send" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/nav_bar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/control_bar"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btn_nav_back"
+            style="@style/NavButton"
+            android:contentDescription="@string/cd_back"
+            android:src="@drawable/ic_nav_back" />
+
+        <ImageButton
+            android:id="@+id/btn_nav_home"
+            style="@style/NavButton"
+            android:contentDescription="@string/cd_home"
+            android:src="@drawable/ic_nav_home" />
+
+        <ImageButton
+            android:id="@+id/btn_nav_recents"
+            style="@style/NavButton"
+            android:contentDescription="@string/cd_recents"
+            android:src="@drawable/ic_nav_recents" />
+
+        <ImageButton
+            android:id="@+id/btn_keyboard"
+            style="@style/NavButton"
+            android:contentDescription="@string/cd_keyboard"
+            android:src="@drawable/ic_keyboard" />
+
+        <ImageButton
+            android:id="@+id/btn_disconnect"
+            style="@style/NavButton"
+            android:contentDescription="@string/cd_disconnect"
+            android:src="@drawable/ic_close" />
+    </LinearLayout>
+</LinearLayout>
