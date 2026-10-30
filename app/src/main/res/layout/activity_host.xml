@@ -78,24 +78,143 @@
                 android:layout_marginTop="16dp"
                 android:text="@string/host_control_button" />
 
+            <!-- Android 12 and older: no restricted settings, one line is enough. -->
+            <TextView
+                android:id="@+id/control_hint_simple"
+                style="@style/Text.Small"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/host_control_hint"
+                android:visibility="gone" />
+
+            <!-- Android 13 and newer: walk through allowing restricted settings. -->
             <LinearLayout
                 android:id="@+id/restricted_help"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_input"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/Text.Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/restricted_title"
+                    android:textSize="15sp" />
 
                 <TextView
                     style="@style/Text.Small"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="@string/host_control_hint" />
+                    android:layout_marginTop="4dp"
+                    android:text="@string/restricted_body" />
 
-                <Button
-                    android:id="@+id/btn_app_info"
-                    style="@style/Button.Link"
-                    android:layout_marginTop="2dp"
-                    android:text="@string/open_app_info" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/Text.Small"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/bg_icon_circle"
+                        android:fontFamily="sans-serif-medium"
+                        android:gravity="center"
+                        android:importantForAccessibility="no"
+                        android:text="1"
+                        android:textColor="@color/accent" />
+
+                    <TextView
+                        style="@style/Text.Body"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:text="@string/restricted_step_1"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/Text.Small"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/bg_icon_circle"
+                        android:fontFamily="sans-serif-medium"
+                        android:gravity="center"
+                        android:importantForAccessibility="no"
+                        android:text="2"
+                        android:textColor="@color/accent" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/Text.Body"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/restricted_step_2"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp" />
+
+                        <Button
+                            android:id="@+id/btn_app_info"
+                            style="@style/Button.Link"
+                            android:minHeight="44dp"
+                            android:text="@string/open_app_info" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/Text.Small"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/bg_icon_circle"
+                        android:fontFamily="sans-serif-medium"
+                        android:gravity="center"
+                        android:importantForAccessibility="no"
+                        android:text="3"
+                        android:textColor="@color/accent" />
+
+                    <TextView
+                        style="@style/Text.Body"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:text="@string/restricted_step_3"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <TextView
+                    style="@style/Text.Small"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/restricted_missing" />
             </LinearLayout>
         </LinearLayout>
 
