@@ -29,4 +29,28 @@ object NetUtils {
         }
         return (wifi + others).distinct()
     }
+
+    /**
+     * This phone's Tailscale address, or null when Tailscale isn't on. Tailscale gives each device
+     * an address in 100.64.0.0/10 on its VPN interface, and any phone signed in to the same
+     * Tailscale network can reach it from anywhere, over Wi-Fi or mobile data.
+     */
+    fun tailscaleAddress(): String? {
+        try {
+            val interfaces = NetworkInterface.getNetworkInterfaces() ?: return null
+            for (ni in Collections.list(interfaces)) {
+                if (!ni.isUp || ni.isLoopback) continue
+                for (address in Collections.list(ni.inetAddresses)) {
+                    if (address is Inet4Address && isTailscale(address.address)) return address.hostAddress
+                }
+            }
+        } catch (e: Exception) {
+            // no address to show
+        }
+        return null
+    }
+
+    /** 100.64.0.0/10: the first byte is 100 and the second is 64 to 127. */
+    internal fun isTailscale(ip: ByteArray): Boolean =
+        ip.size == 4 && (ip[0].toInt() and 0xFF) == 100 && (ip[1].toInt() and 0xC0) == 64
 }

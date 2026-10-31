@@ -12,6 +12,7 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -31,7 +32,10 @@ class HostActivity : Activity() {
     private lateinit var shareChip: TextView
     private lateinit var shareBody: TextView
     private lateinit var connectInfo: View
+    private lateinit var addressLabel: TextView
     private lateinit var addressText: TextView
+    private lateinit var tailscaleLabel: TextView
+    private lateinit var tailscaleText: TextView
     private lateinit var pinText: TextView
     private lateinit var peerText: TextView
     private lateinit var shareButton: Button
@@ -52,7 +56,10 @@ class HostActivity : Activity() {
         shareChip = findViewById(R.id.share_chip)
         shareBody = findViewById(R.id.share_body)
         connectInfo = findViewById(R.id.connect_info)
+        addressLabel = findViewById(R.id.address_label)
         addressText = findViewById(R.id.address_text)
+        tailscaleLabel = findViewById(R.id.tailscale_label)
+        tailscaleText = findViewById(R.id.tailscale_text)
         pinText = findViewById(R.id.pin_text)
         peerText = findViewById(R.id.peer_text)
         shareButton = findViewById(R.id.btn_share)
@@ -148,12 +155,29 @@ class HostActivity : Activity() {
         shareBody.setText(if (sharing) R.string.host_share_body else R.string.host_share_body_idle)
         if (sharing) {
             val addresses = NetUtils.localAddresses()
+            val tailscale = NetUtils.tailscaleAddress()
+            // On Wi-Fi only: "Address". With Tailscale on too, say which address is for what.
+            // Tailscale over mobile data with no Wi-Fi: only the Tailscale address.
+            val showLocal = addresses.isNotEmpty() || tailscale == null
+            addressLabel.visibility = if (showLocal) View.VISIBLE else View.GONE
+            addressText.visibility = if (showLocal) View.VISIBLE else View.GONE
+            addressLabel.setText(if (tailscale != null) R.string.label_address_wifi else R.string.label_address)
             addressText.text = if (addresses.isEmpty()) {
                 getString(R.string.no_network)
             } else {
                 addresses.joinToString("\n") { "$it:${ShareState.port}" }
             }
             addressText.textSize = if (addresses.isEmpty()) 15f else 22f
+            tailscaleLabel.visibility = if (tailscale != null) View.VISIBLE else View.GONE
+            tailscaleText.visibility = if (tailscale != null) View.VISIBLE else View.GONE
+            // The first row on screen doesn't need the gap above it
+            val gap = if (showLocal) (16 * resources.displayMetrics.density).toInt() else 0
+            val params = tailscaleLabel.layoutParams as ViewGroup.MarginLayoutParams
+            if (params.topMargin != gap) {
+                params.topMargin = gap
+                tailscaleLabel.layoutParams = params
+            }
+            tailscaleText.text = tailscale?.let { "$it:${ShareState.port}" }
             pinText.text = formatPin(ShareState.pin)
             peerText.text = if (ShareState.status == ShareState.Status.CONNECTED) {
                 getString(R.string.host_connected, ShareState.peer ?: "")

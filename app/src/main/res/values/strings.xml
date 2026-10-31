@@ -14,7 +14,7 @@
     <string name="how_1">On the phone you want to control, open DroidLink and tap Share this phone.</string>
     <string name="how_2">On the other phone, tap Control another phone and pick it from the list, or type its address.</string>
     <string name="how_3">Enter the 6-digit PIN shown on the sharing phone.</string>
-    <string name="how_note">Both phones need to be on the same Wi-Fi. No Wi-Fi? Turn on one phone\'s hotspot and join it with the other.</string>
+    <string name="how_note">Both phones need to be on the same Wi-Fi. No Wi-Fi? Turn on one phone\'s hotspot and join it with the other. Far apart, even in different countries? Turn on Tailscale on both phones and use the Tailscale address.</string>
 
     <!-- Host -->
     <string name="host_control_title">Remote control</string>
@@ -32,10 +32,12 @@
     <string name="host_share_body">When you start, Android asks for permission to record your screen. On the other phone, open DroidLink, tap Control another phone and enter:</string>
     <string name="host_share_body_idle">When you start, Android asks for permission to record your screen. Choose Entire screen if it asks.</string>
     <string name="label_address">Address</string>
+    <string name="label_address_wifi">Address on this Wi-Fi</string>
+    <string name="label_tailscale">Address from anywhere (Tailscale)</string>
     <string name="label_pin">PIN</string>
     <string name="host_waiting">Waiting for the other phone to connect…</string>
     <string name="host_connected">Connected to %1$s</string>
-    <string name="no_network">No Wi-Fi found. Connect both phones to the same Wi-Fi, or turn on this phone\'s hotspot.</string>
+    <string name="no_network">No Wi-Fi found. Connect both phones to the same Wi-Fi, or turn on this phone\'s hotspot. To connect from anywhere, turn on Tailscale on both phones.</string>
     <string name="start_sharing">Start sharing</string>
     <string name="stop_sharing">Stop sharing</string>
     <string name="host_footnote">Only share with people you trust. While connected, the other phone can see everything on your screen.</string>
@@ -62,7 +64,7 @@
     <string name="address_hint">e.g. 192.168.1.23:47800</string>
     <string name="pin_hint">6-digit PIN</string>
     <string name="connect">Connect</string>
-    <string name="connect_footnote">The address and PIN appear on the other phone after it taps Start sharing.</string>
+    <string name="connect_footnote">The address and PIN appear on the other phone after it taps Start sharing. Not on the same Wi-Fi? Turn on Tailscale on both phones and enter the other phone\'s Tailscale address (it starts with 100.).</string>
     <string name="error_address">Enter the address shown on the other phone</string>
     <string name="error_pin">Enter the 6-digit PIN</string>
 
@@ -80,7 +82,7 @@
     <string name="err_wrong_pin">Wrong PIN. Check the PIN on the other phone and try again.</string>
     <string name="err_busy">That phone is already connected to another phone.</string>
     <string name="err_version">The other phone has a different version of DroidLink. Install the same version on both.</string>
-    <string name="err_unreachable">Couldn\'t reach %1$s. Check that both phones are on the same Wi-Fi and that sharing is on.</string>
+    <string name="err_unreachable">Couldn\'t reach %1$s. Check that sharing is on and that both phones are on the same Wi-Fi, or both have Tailscale on.</string>
     <string name="err_timeout">The other phone stopped responding.</string>
     <string name="err_ended">The other phone stopped sharing.</string>
     <string name="err_generic">Connection lost.</string>
