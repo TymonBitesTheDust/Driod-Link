@@ -97,7 +97,8 @@ class ViewerConnection(
         try {
             val s = Socket()
             socket = s
-            s.connect(InetSocketAddress(host, port), 6000)
+            // Over Tailscale, the first connection to a phone far away can take a few seconds to set up
+            s.connect(InetSocketAddress(host, port), 10_000)
             s.tcpNoDelay = true
             s.keepAlive = true
             s.soTimeout = 10_000 // the host sends a heartbeat every 2 seconds

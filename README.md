@@ -1,23 +1,24 @@
 # DroidLink
 
-[![Latest release](https://img.shields.io/github/v/release/TymonBitesTheDust/Driod-Link?label=latest%20release)](https://github.com/TymonBitesTheDust/Driod-Link/releases/latest)
-[![Downloads](https://img.shields.io/github/downloads/TymonBitesTheDust/Driod-Link/total)](https://github.com/TymonBitesTheDust/Driod-Link/releases)
-[![Build APK](https://github.com/TymonBitesTheDust/Driod-Link/actions/workflows/build.yml/badge.svg)](https://github.com/TymonBitesTheDust/Driod-Link/actions/workflows/build.yml)
+[![Latest release](https://img.shields.io/github/v/release/TymonBitesTheDust/Droid-Link?label=latest%20release)](https://github.com/TymonBitesTheDust/Droid-Link/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/TymonBitesTheDust/Droid-Link/total)](https://github.com/TymonBitesTheDust/Droid-Link/releases)
+[![Build APK](https://github.com/TymonBitesTheDust/Droid-Link/actions/workflows/build.yml/badge.svg)](https://github.com/TymonBitesTheDust/Droid-Link/actions/workflows/build.yml)
 ![Android 8.0+](https://img.shields.io/badge/Android-8.0%2B-3DDC84)
 
-See and control one Android phone from another over Wi-Fi.
+See and control one Android phone from another over Wi-Fi, or from anywhere with Tailscale.
 
 One phone **shares** its screen. The other phone **controls** it: it sees the screen live and can tap, long-press, swipe, scroll, type, and press Back, Home and Recent apps.
 
 - Works on Android 8.0 (API 26) and newer.
 - No account, no server, no internet needed. The phones talk directly over the same Wi-Fi, or over one phone's hotspot.
+- Far apart, even in different countries? Add the free Tailscale app on both phones: see [Connect from anywhere](#connect-from-anywhere-tailscale).
 - The same APK does both jobs. Install it on both phones.
 
 ## Download
 
-**[⬇ Download the latest DroidLink.apk](https://github.com/TymonBitesTheDust/Driod-Link/releases/latest/download/DroidLink.apk)**
+**[⬇ Download the latest DroidLink.apk](https://github.com/TymonBitesTheDust/Droid-Link/releases/latest/download/DroidLink.apk)**
 
-Open this link on each phone to download the newest version directly. Older builds are on the [Releases page](https://github.com/TymonBitesTheDust/Driod-Link/releases).
+Open this link on each phone to download the newest version directly. Older builds are on the [Releases page](https://github.com/TymonBitesTheDust/Droid-Link/releases).
 
 ## Install
 
@@ -46,6 +47,30 @@ To update, download the latest APK again and install it over the old one. Your s
 Controls at the bottom: Back, Home (long-press for the notification shade), Recent apps, Keyboard (type into whatever text box is selected on the other phone), and Disconnect.
 
 To stop, tap **Stop sharing** in the app or **Stop sharing** in the notification on the sharing phone.
+
+## Connect from anywhere (Tailscale)
+
+On their own, the two phones have to be on the same Wi-Fi: the address DroidLink shows only works inside that network, and home routers block connections coming in from the internet. [Tailscale](https://tailscale.com), a free app, joins your devices into one private, encrypted network that works over any Wi-Fi or mobile data, so the phones can be in different places, even different countries.
+
+**Set up once, on both phones:**
+
+1. Install **Tailscale** from the Play Store.
+2. Open it, sign in with the **same account** on both phones, and tap **Connect**. Allow the VPN connection when Android asks.
+   - Controlling someone else's phone? They can sign in to your Tailscale network, or share their phone with you using [Tailscale's device sharing](https://tailscale.com/kb/1084/sharing).
+
+**Each time:**
+
+1. Check Tailscale is connected on both phones.
+2. On the sharing phone, tap **Start sharing**. Under **Address from anywhere (Tailscale)** DroidLink shows an address that starts with `100.`, for example `100.101.102.103:47800`.
+3. On the other phone, tap **Control another phone**, type that address and the PIN, and tap **Connect**.
+
+Good to know:
+
+- **Phones nearby** only finds phones on the same Wi-Fi. Over Tailscale, type the address.
+- Tailscale encrypts everything between the two phones, and only devices in your Tailscale network can reach the address. The PIN is still needed.
+- Sharing a screen sends a lot of data while the screen is changing, so watch your data allowance on mobile data. On a slow connection the picture updates less often: DroidLink skips frames instead of falling behind.
+- If you use Tailscale's split tunnelling (excluded apps), leave DroidLink included.
+- DroidLink 1.1 and 1.2 can connect to each other. 1.2 shows the Tailscale address on the sharing phone; with 1.1 you can find it in the Tailscale app instead.
 
 ## Allow restricted settings (Android 13 and newer)
 
@@ -95,9 +120,9 @@ Then switch on **DroidLink remote control** as in step 4.
 
 ## Limits
 
-- Both phones have to be on the same local network. Connecting over the internet would need a relay server.
+- Without Tailscale, both phones have to be on the same local network. See [Connect from anywhere](#connect-from-anywhere-tailscale).
 - One finger only (no pinch-zoom).
-- The connection isn't encrypted. Use it on networks you trust; the PIN keeps strangers from connecting, but not from listening in on a shared public Wi-Fi.
+- DroidLink itself doesn't encrypt the connection. Over Wi-Fi, use it on networks you trust; the PIN keeps strangers from connecting, but not from listening in on a shared public Wi-Fi. Over Tailscale, Tailscale encrypts it.
 - Screens Android protects (banking apps, password fields, DRM video) show up black. That's Android, not a bug.
 - Typing replaces the focused field's text with its current text plus yours, so it works best in normal text boxes.
 
@@ -119,7 +144,7 @@ Releases are published automatically by the workflow in `.github/workflows/build
 
 1. Optional: raise `versionCode` and `versionName` in `app/build.gradle.kts` so you can tell versions apart in **App info**.
 2. Commit and push to `main`.
-3. GitHub Actions builds the APK and publishes it as a new release called **DroidLink build N**. Follow it on the [Actions tab](https://github.com/TymonBitesTheDust/Driod-Link/actions).
+3. GitHub Actions builds the APK and publishes it as a new release called **DroidLink build N**. Follow it on the [Actions tab](https://github.com/TymonBitesTheDust/Droid-Link/actions).
 
 Each new build becomes the **Latest** release, so the download link at the top of this README always points to it. Keep the file name `DroidLink.apk`: that's the name the link looks for.
 

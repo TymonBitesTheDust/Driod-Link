@@ -263,6 +263,7 @@
                 android:visibility="gone">
 
                 <TextView
+                    android:id="@+id/address_label"
                     style="@style/Text.Section"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -275,6 +276,25 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:textSize="22sp" />
+
+                <!-- Shown while Tailscale is on: a phone anywhere can connect with it. -->
+                <TextView
+                    android:id="@+id/tailscale_label"
+                    style="@style/Text.Section"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/label_tailscale"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tailscale_text"
+                    style="@style/Text.Mono"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textSize="22sp"
+                    android:visibility="gone" />
 
                 <TextView
                     style="@style/Text.Section"
