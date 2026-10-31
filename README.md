@@ -1,5 +1,10 @@
 # DroidLink
 
+[![Latest release](https://img.shields.io/github/v/release/TymonBitesTheDust/Driod-Link?label=latest%20release)](https://github.com/TymonBitesTheDust/Driod-Link/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/TymonBitesTheDust/Driod-Link/total)](https://github.com/TymonBitesTheDust/Driod-Link/releases)
+[![Build APK](https://github.com/TymonBitesTheDust/Driod-Link/actions/workflows/build.yml/badge.svg)](https://github.com/TymonBitesTheDust/Driod-Link/actions/workflows/build.yml)
+![Android 8.0+](https://img.shields.io/badge/Android-8.0%2B-3DDC84)
+
 See and control one Android phone from another over Wi-Fi.
 
 One phone **shares** its screen. The other phone **controls** it: it sees the screen live and can tap, long-press, swipe, scroll, type, and press Back, Home and Recent apps.
@@ -8,12 +13,18 @@ One phone **shares** its screen. The other phone **controls** it: it sees the sc
 - No account, no server, no internet needed. The phones talk directly over the same Wi-Fi, or over one phone's hotspot.
 - The same APK does both jobs. Install it on both phones.
 
+## Download
+
+**[⬇ Download the latest DroidLink.apk](https://github.com/TymonBitesTheDust/Driod-Link/releases/latest/download/DroidLink.apk)**
+
+Open this link on each phone to download the newest version directly. Older builds are on the [Releases page](https://github.com/TymonBitesTheDust/Driod-Link/releases).
+
 ## Install
 
-1. Download `DroidLink.apk` from this repository's **Releases** page on both phones, or copy it over any way you like (Google Drive, a USB cable, a messaging app).
+1. Download `DroidLink.apk` on both phones using the link above, or copy it over any way you like (Google Drive, a USB cable, a messaging app).
 2. Open it on each phone. Android asks you to allow installing from that app; allow it, then tap **Install**. If Play Protect warns about an unknown app, tap **Install anyway**.
 
-To update, install the new APK over the old one. Your settings are kept.
+To update, download the latest APK again and install it over the old one. Your settings are kept.
 
 ## Use it
 
@@ -98,6 +109,18 @@ Open the folder in Android Studio and press Run, or from a terminal with the And
 ./gradlew assembleRelease
 ```
 
-Push this folder to a GitHub repository and the included workflow (`.github/workflows/build.yml`) builds the APK for you on every push and attaches it to a release you can download on your phone.
+The APK is created at `app/build/outputs/apk/release/app-release.apk`.
 
 The project is signed with a key in `app/droidlink.keystore` (password `droidlink`) so every build installs over the previous one. That is fine for personal use; make your own private key before publishing it anywhere.
+
+## Publishing a new release
+
+Releases are published automatically by the workflow in `.github/workflows/build.yml`:
+
+1. Optional: raise `versionCode` and `versionName` in `app/build.gradle.kts` so you can tell versions apart in **App info**.
+2. Commit and push to `main`.
+3. GitHub Actions builds the APK and publishes it as a new release called **DroidLink build N**. Follow it on the [Actions tab](https://github.com/TymonBitesTheDust/Driod-Link/actions).
+
+Each new build becomes the **Latest** release, so the download link at the top of this README always points to it. Keep the file name `DroidLink.apk`: that's the name the link looks for.
+
+To push a change without publishing a new build (for example, a README edit), put `[skip ci]` in the commit message.
